@@ -1,5 +1,6 @@
 package beutiy.application
 
+import java.time.format.DateTimeFormatter
 import java.time.{LocalDate, LocalDateTime}
 
 import beutiy.application.form.{BirthdayForm, CustomerNameForm, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
@@ -33,13 +34,15 @@ object Prompt {
   }
 
   def confirmInformation(customer: Customer, reservation: Reservation, totalPrice: Int): Unit = {
+    val dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+
     println()
     println("以下の通りご予約承りました")
     println(s"お客様氏名：${customer.name}")
     println(s"電話番号：${customer.phoneNumber}")
     println(s"生年月日：${customer.birthday.toString}")
     println()
-    println(s"ご予約日時：${reservation.reservationDate.toString}")
+    println(s"ご予約日時：${reservation.reservationDate.format(dateTimeFormat)}")
     println(s"メニュー：${reservation.menu}")
     println(s"指名スタイリスト：${reservation.stylist.map(_.toString).getOrElse("")}")
     println()
