@@ -22,8 +22,6 @@ object Prompt {
     val phoneNumber = validatePhoneNumber(phoneNumberPrompt())
     val birthday = validateBirthday(birthdayPrompt())
 
-    println()
-
     Information(
       customerName,
       phoneNumber,
@@ -35,6 +33,7 @@ object Prompt {
   }
 
   def confirmInformation(customer: Customer, reservation: Reservation, totalPrice: Int): Unit = {
+    println()
     println("以下の通りご予約承りました")
     println(s"お客様氏名：${customer.name}")
     println(s"電話番号：${customer.phoneNumber}")
@@ -42,7 +41,7 @@ object Prompt {
     println()
     println(s"ご予約日時：${reservation.reservationDate.toString}")
     println(s"メニュー：${reservation.menu}")
-    println(s"指名スタイリスト：${reservation.stylist}")
+    println(s"指名スタイリスト：${reservation.stylist.map(_.toString).getOrElse("")}")
     println()
     println(s"料金：${totalPrice}")
   }
