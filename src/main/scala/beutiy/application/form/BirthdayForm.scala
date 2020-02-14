@@ -23,7 +23,7 @@ object BirthdayForm {
   }
 
   //入力された日付がLocalDateに変換できるかバリデーション
-  private[form] def checkConvertBirthday(birthdayString: String): Option[LocalDate] = Try{
+  private[form] def checkConvertBirthday(birthdayString: String): Option[LocalDate] = Try {
     LocalDate.parse(birthdayString, birthdayFormat)
   }.toOption
 

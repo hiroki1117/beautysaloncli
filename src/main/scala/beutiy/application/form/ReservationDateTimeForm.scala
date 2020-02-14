@@ -23,7 +23,7 @@ object ReservationDateTimeForm {
   }
 
   //入力された日付がLocalDateに変換できるかバリデーション
-  private[form] def checkConvertReservationDateTime(reservationDateTime: String): Option[LocalDateTime] = Try{
+  private[form] def checkConvertReservationDateTime(reservationDateTime: String): Option[LocalDateTime] = Try {
     LocalDateTime.parse(reservationDateTime, reservationDateTimeFormat)
   }.toOption
 

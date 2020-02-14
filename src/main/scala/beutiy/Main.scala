@@ -20,6 +20,7 @@ object Main {
     if (customer.getAge() <= 18)
       Prompt.print20PercentOffForUnder18()
 
+    //料金の確認を表示する
     Prompt.confirmInformation(customer, reservation, price)
   }
 
