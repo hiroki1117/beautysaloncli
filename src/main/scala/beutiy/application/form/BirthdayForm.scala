@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter
 import scala.util.Try
 
 object BirthdayForm {
-  private val acceptableBirthdayRegex = """([0-9]{8})""".r
-  private val birthdayFormat = DateTimeFormatter.ofPattern("yyyyMMdd")
+  private val acceptableBirthdayRegex = """([0-9]{4}-[0-9]{2}-[0-9]{2})""".r
+  private val birthdayFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
   def apply(birthday: String): Option[LocalDate] =
     for {
