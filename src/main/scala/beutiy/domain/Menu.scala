@@ -33,4 +33,3 @@ case object PermOnly extends Menu {
 
   override def toString: String = "パーマのみ"
 }
-

@@ -7,6 +7,6 @@ object PhoneNumberForm {
 
   def apply(phoneNumber: String): Option[String] = phoneNumber match {
     case acceptableNumRegex(v) => Some(v)
-    case _ => None
+    case _                     => None
   }
 }

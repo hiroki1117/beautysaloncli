@@ -10,18 +10,16 @@ import scala.annotation.tailrec
 import scala.io.StdIn
 
 object Prompt {
-
   def askUserInformation(): Information = {
-
     //予約情報の入力
     val reservationDateTime = validateReservationDateTime(reservationDateTimePrompt())
-    val menu = validateMenu(menuPrompt())
-    val stylist = stylistPrompt()
+    val menu                = validateMenu(menuPrompt())
+    val stylist             = stylistPrompt()
 
     //お客様情報の入力
     val customerName = validateCustomerName(customerNamePrompt())
-    val phoneNumber = validatePhoneNumber(phoneNumberPrompt())
-    val birthday = validateBirthday(birthdayPrompt())
+    val phoneNumber  = validatePhoneNumber(phoneNumberPrompt())
+    val birthday     = validateBirthday(birthdayPrompt())
 
     Information(
       customerName,
@@ -94,13 +92,14 @@ object Prompt {
   }
 
   @tailrec
-  private[application] def validateReservationDateTime(userInput: String): LocalDateTime = ReservationDateTimeForm(userInput) match {
-    case Some(v) => v
-    case None => {
-      println("不正な値が入力されました")
-      validateReservationDateTime(reservationDateTimePrompt())
+  private[application] def validateReservationDateTime(userInput: String): LocalDateTime =
+    ReservationDateTimeForm(userInput) match {
+      case Some(v) => v
+      case None => {
+        println("不正な値が入力されました")
+        validateReservationDateTime(reservationDateTimePrompt())
+      }
     }
-  }
 
   private[application] def reservationDateTimePrompt(): String = {
     println("予約日時を入力してください (例：202012192100")
@@ -117,8 +116,7 @@ object Prompt {
   }
 
   private[application] def menuPrompt(): String = {
-    println(
-      """メニューを入力してください (例：カットの場合 1
+    println("""メニューを入力してください (例：カットの場合 1
         |1. カット 5000円
         |2. カットカラー 10000円
         |3. カットパーマ 10000円

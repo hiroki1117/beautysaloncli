@@ -1,8 +1,8 @@
 import Dependencies._
 
 val libs = Seq(
-    scalaTest % Test,
-    "org.mockito" %% "mockito-scala" % "1.11.2" % Test
+  scalaTest     % Test,
+  "org.mockito" %% "mockito-scala" % "1.11.2" % Test
 )
 
 lazy val root = (project in file("."))

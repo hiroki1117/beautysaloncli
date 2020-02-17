@@ -8,4 +8,3 @@ case class Customer(name: String, phoneNumber: String, birthday: LocalDate) {
 
   private[domain] def now() = LocalDate.now()
 }
-

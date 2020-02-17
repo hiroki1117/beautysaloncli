@@ -5,6 +5,6 @@ object MenuForm {
 
   def apply(menuNum: String): Option[Int] = menuNum match {
     case acceptableMenuNumRegex(v) => Some(v.toInt)
-    case _ => None
+    case _                         => None
   }
 }

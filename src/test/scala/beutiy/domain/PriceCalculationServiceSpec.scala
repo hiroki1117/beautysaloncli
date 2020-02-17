@@ -3,12 +3,11 @@ package beutiy.domain
 import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 
-class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar{
-
+class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar {
   val target = PriceCalculationService
 
   test("18歳割引なし、メニュー、指定なし") {
-    val mockCustomer = mock[Customer]
+    val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
     when(mockCustomer.getAge()).thenReturn(30)
     when(mockReservation.stylist).thenReturn(Option.empty[Stylist])
@@ -40,7 +39,7 @@ class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar{
   }
 
   test("指名がある場合は指名料500円") {
-    val mockCustomer = mock[Customer]
+    val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
     when(mockCustomer.getAge()).thenReturn(30)
     when(mockReservation.stylist).thenReturn(Option(Stylist("hoge")))
@@ -51,13 +50,13 @@ class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar{
   }
 
   test("18歳以下の場合は20%off") {
-    val mockCustomer = mock[Customer]
+    val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
     when(mockCustomer.getAge()).thenReturn(10)
     when(mockReservation.stylist).thenReturn(Option.empty[Stylist])
     when(mockReservation.menu).thenReturn(Cut)
 
-    val expected = {Cut.price * 0.8}.toInt
+    val expected = { Cut.price * 0.8 }.toInt
     assert(target.calcTotalPrice(mockCustomer, mockReservation) == expected)
   }
 }
