@@ -1,5 +1,7 @@
 package beauty
 
+import java.time.LocalDate
+
 import beauty.application.{Information, Prompt}
 import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
 import beauty.application.{Information, Prompt}
@@ -17,7 +19,7 @@ object Main {
     val price = PriceCalculationService.calcTotalPrice(customer, reservation)
 
     //18歳以下であれば値引きを知らせる
-    if (customer.getAge() <= 18)
+    if (customer.getAge(LocalDate.now()) <= 18)
       Prompt.print20PercentOffForUnder18()
 
     //料金の確認を表示する

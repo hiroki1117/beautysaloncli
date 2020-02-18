@@ -1,16 +1,19 @@
 package beauty.domain
 
+import java.time.LocalDate
+
 import beauty.domain.{ColorOnly, Customer, Cut, CutColor, CutPerm, PermOnly, PriceCalculationService, Reservation, Stylist}
 import org.mockito.MockitoSugar
+import org.mockito.ArgumentMatchersSugar
 import org.scalatest.funsuite.AnyFunSuite
 
-class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar {
+class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar with ArgumentMatchersSugar {
   val target = PriceCalculationService
 
   test("18歳割引なし、メニュー、指定なし") {
     val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
-    when(mockCustomer.getAge()).thenReturn(30)
+    when(mockCustomer.getAge(any[LocalDate])).thenReturn(30)
     when(mockReservation.stylist).thenReturn(Option.empty[Stylist])
 
     //カット
@@ -42,7 +45,7 @@ class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar {
   test("指名がある場合は指名料500円") {
     val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
-    when(mockCustomer.getAge()).thenReturn(30)
+    when(mockCustomer.getAge(any[LocalDate])).thenReturn(30)
     when(mockReservation.stylist).thenReturn(Option(Stylist("hoge")))
     when(mockReservation.menu).thenReturn(Cut)
 
@@ -53,7 +56,7 @@ class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar {
   test("18歳以下の場合は20%off") {
     val mockCustomer    = mock[Customer]
     val mockReservation = mock[Reservation]
-    when(mockCustomer.getAge()).thenReturn(10)
+    when(mockCustomer.getAge(any[LocalDate])).thenReturn(10)
     when(mockReservation.stylist).thenReturn(Option.empty[Stylist])
     when(mockReservation.menu).thenReturn(Cut)
 

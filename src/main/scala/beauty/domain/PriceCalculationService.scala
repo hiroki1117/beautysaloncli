@@ -1,5 +1,7 @@
 package beauty.domain
 
+import java.time.LocalDate
+
 object PriceCalculationService {
   private val optionPrice = 500
 
@@ -9,7 +11,7 @@ object PriceCalculationService {
     val generalPrice = reservation.menu.price + option
 
     //18歳以下の場合は20%off
-    if (customer.getAge() <= 18)
+    if (customer.getAge(LocalDate.now()) <= 18)
       (generalPrice * 0.8).toInt
     else
       generalPrice
