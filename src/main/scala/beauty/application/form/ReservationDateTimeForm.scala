@@ -11,13 +11,13 @@ object ReservationDateTimeForm {
 
   def apply(reservationDateTime: String): Option[LocalDateTime] =
     for {
-      format   <- checkBirthdayFormat(reservationDateTime)
+      format   <- checkReservationDateFormat(reservationDateTime)
       convert  <- checkConvertReservationDateTime(format)
       dateTime <- checkPastDateTime(convert)
     } yield dateTime
 
   //フォーマットのバリデーション
-  private[form] def checkBirthdayFormat(reservationDateTime: String): Option[String] = reservationDateTime match {
+  private[form] def checkReservationDateFormat(reservationDateTime: String): Option[String] = reservationDateTime match {
     case acceptableReservationDateTimeRegex(v) => Some(v)
     case _                                     => None
   }
