@@ -6,8 +6,8 @@ import java.time.format.{DateTimeFormatter, ResolverStyle}
 import scala.util.{Success, Try}
 
 object ReservationDateTimeForm {
-  private val acceptableReservationDateTimeRegex = """([0-9]{12})""".r
-  private val reservationDateTimeFormat          = DateTimeFormatter.ofPattern("yyyyMMddHHmm")
+  private val acceptableReservationDateTimeRegex = """(\d{12})""".r
+  private val reservationDateTimeFormat          = DateTimeFormatter.ofPattern("uuuuMMddHHmm").withResolverStyle(ResolverStyle.STRICT)
 
   def apply(reservationDateTime: String): Either[ReservationDateTimeFormError ,LocalDateTime] =
     for {

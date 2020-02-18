@@ -6,8 +6,8 @@ import java.time.format.{DateTimeFormatter, ResolverStyle}
 import scala.util.{Success, Try}
 
 object BirthdayForm {
-  private val acceptableBirthdayRegex = """([0-9]{4}-[0-9]{2}-[0-9]{2})""".r
-  private val birthdayFormat          = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+  private val acceptableBirthdayRegex = """(\d{4}-\d{2}-\d{2})""".r
+  private val birthdayFormat          = DateTimeFormatter.ofPattern("uuuu-MM-dd").withResolverStyle(ResolverStyle.STRICT)
 
   def apply(birthday: String): Either[BirthdayFormError ,LocalDate] =
     for {
