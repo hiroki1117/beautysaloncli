@@ -1,4 +1,4 @@
-package beutiy.application.form
+package beauty.application.form
 
 object CustomerNameForm {
   def apply(name: String): Option[String] =

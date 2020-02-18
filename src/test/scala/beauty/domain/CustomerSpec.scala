@@ -1,8 +1,8 @@
-package beutiy.domain
+package beauty.domain
 
 import java.time.LocalDate
 
-import beutiy.domain.Customer
+import beauty.domain.Customer
 import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 

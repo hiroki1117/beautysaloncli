@@ -1,7 +1,7 @@
-package beutiy.application.form
+package beauty.application.form
 
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.time.format.{DateTimeFormatter, ResolverStyle}
 
 import scala.util.Try
 

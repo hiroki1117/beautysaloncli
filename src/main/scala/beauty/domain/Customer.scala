@@ -1,4 +1,4 @@
-package beutiy.domain
+package beauty.domain
 
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit

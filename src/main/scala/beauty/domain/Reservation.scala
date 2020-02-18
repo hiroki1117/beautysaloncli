@@ -1,4 +1,4 @@
-package beutiy.domain
+package beauty.domain
 
 import java.time.LocalDateTime
 

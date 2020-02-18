@@ -1,7 +1,9 @@
-package beutiy
+package beauty
 
-import beutiy.application.{Information, Prompt}
-import beutiy.domain.{Customer, PriceCalculationService, ReservationFactory}
+import beauty.application.{Information, Prompt}
+import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
+import beauty.application.{Information, Prompt}
+import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
 
 object Main {
   def main(args: Array[String]): Unit = {

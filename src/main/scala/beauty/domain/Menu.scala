@@ -1,4 +1,4 @@
-package beutiy.domain
+package beauty.domain
 
 sealed trait Menu {
   val name: String

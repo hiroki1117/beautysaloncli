@@ -1,10 +1,12 @@
-package beutiy.application
+package beauty.application
 
 import java.time.format.DateTimeFormatter
 import java.time.{LocalDate, LocalDateTime}
 
-import beutiy.application.form.{BirthdayForm, CustomerNameForm, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
-import beutiy.domain.{Customer, Reservation}
+import beauty.application.form.{BirthdayForm, CustomerNameForm, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
+import beauty.domain.{Customer, Reservation}
+import beauty.application.form.{BirthdayForm, CustomerNameForm, MenuForm, ReservationDateTimeForm}
+import beauty.domain.{Customer, Reservation}
 
 import scala.annotation.tailrec
 import scala.io.StdIn

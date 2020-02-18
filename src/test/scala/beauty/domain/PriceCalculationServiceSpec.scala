@@ -1,5 +1,6 @@
-package beutiy.domain
+package beauty.domain
 
+import beauty.domain.{ColorOnly, Customer, Cut, CutColor, CutPerm, PermOnly, PriceCalculationService, Reservation, Stylist}
 import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 

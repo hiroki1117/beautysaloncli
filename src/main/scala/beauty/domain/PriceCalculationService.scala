@@ -1,4 +1,4 @@
-package beutiy.domain
+package beauty.domain
 
 object PriceCalculationService {
   private val optionPrice = 500
