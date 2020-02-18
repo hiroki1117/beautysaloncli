@@ -81,9 +81,9 @@ object Prompt {
 
   @tailrec
   private[application] def validateBirthday(userInput: String): LocalDate = BirthdayForm(userInput) match {
-    case Some(v) => v
-    case None => {
-      println("不正な値が入力されました")
+    case Right(v) => v
+    case Left(error) => {
+      println(error.massage)
       validateBirthday(birthdayPrompt())
     }
   }
@@ -96,9 +96,9 @@ object Prompt {
   @tailrec
   private[application] def validateReservationDateTime(userInput: String): LocalDateTime =
     ReservationDateTimeForm(userInput) match {
-      case Some(v) => v
-      case None => {
-        println("不正な値が入力されました")
+      case Right(v) => v
+      case Left(error) => {
+        println(error.massage)
         validateReservationDateTime(reservationDateTimePrompt())
       }
     }
