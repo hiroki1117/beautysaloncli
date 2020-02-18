@@ -11,7 +11,7 @@ object ReservationFactory {
       case "3" => CutPerm
       case "4" => ColorOnly
       case "5" => PermOnly
-      case _ => throw new IllegalArgumentException
+      case _   => throw new IllegalArgumentException
     }
 
     val stylist = if (info.stylist.isEmpty) None else Some(Stylist(info.stylist))
