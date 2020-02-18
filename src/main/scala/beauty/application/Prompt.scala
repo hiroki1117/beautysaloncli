@@ -109,7 +109,7 @@ object Prompt {
   }
 
   @tailrec
-  private[application] def validateMenu(userInput: String): Int = MenuForm(userInput) match {
+  private[application] def validateMenu(userInput: String): String = MenuForm(userInput) match {
     case Some(v) => v
     case None => {
       println("不正な値が入力されました")

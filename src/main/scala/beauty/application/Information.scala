@@ -7,6 +7,6 @@ case class Information(
     phoneNumber: String,
     birthday: LocalDate,
     reservationDateTime: LocalDateTime,
-    menu: Int,
+    menu: String,
     stylist: String
 )
