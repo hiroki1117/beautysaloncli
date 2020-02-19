@@ -1,4 +1,4 @@
-package beauty.presentation.form
+package presentation.form
 
 import java.time.LocalDateTime
 import java.time.format.{DateTimeFormatter, ResolverStyle}

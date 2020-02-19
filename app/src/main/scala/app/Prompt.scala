@@ -1,15 +1,13 @@
-package beauty.presentation
+package app
 
 import java.time.format.DateTimeFormatter
 import java.time.{LocalDate, LocalDateTime}
 
-import beauty.presentation.form.{BirthdayForm, CustomerNameForm, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
-import beauty.domain.{Customer, Reservation}
-import beauty.presentation.form.{BirthdayForm, CustomerNameForm, MenuForm, ReservationDateTimeForm}
-import beauty.domain.{Customer, Reservation}
+import domain.{Customer, Reservation}
 
 import scala.annotation.tailrec
 import scala.io.StdIn
+import presentation.form.{BirthdayForm, CustomerNameForm, Information, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
 
 object Prompt {
   def askUserInformation(): Information = {
@@ -52,7 +50,7 @@ object Prompt {
   def print20PercentOffForUnder18(): Unit = println("18歳以下のお客様は20%オフさせていただきます")
 
   @tailrec
-  private[presentation] def validateCustomerName(userInput: String): String = CustomerNameForm(userInput) match {
+  private[app] def validateCustomerName(userInput: String): String = CustomerNameForm(userInput) match {
     case Some(v) => v
     case None => {
       println("不正な値が入力されました")
@@ -60,13 +58,13 @@ object Prompt {
     }
   }
 
-  private[presentation] def customerNamePrompt(): String = {
+  private[app] def customerNamePrompt(): String = {
     println("お客様のお名前を入力してください")
     StdIn.readLine()
   }
 
   @tailrec
-  private[presentation] def validatePhoneNumber(userInput: String): String = PhoneNumberForm(userInput) match {
+  private[app] def validatePhoneNumber(userInput: String): String = PhoneNumberForm(userInput) match {
     case Some(v) => v
     case None => {
       println("不正な値が入力されました")
@@ -74,13 +72,13 @@ object Prompt {
     }
   }
 
-  private[presentation] def phoneNumberPrompt(): String = {
+  private[app] def phoneNumberPrompt(): String = {
     println("電話番号を入力してください")
     StdIn.readLine()
   }
 
   @tailrec
-  private[presentation] def validateBirthday(userInput: String): LocalDate = BirthdayForm(userInput) match {
+  private[app] def validateBirthday(userInput: String): LocalDate = BirthdayForm(userInput) match {
     case Right(v) => v
     case Left(error) => {
       println(error.massage)
@@ -88,13 +86,13 @@ object Prompt {
     }
   }
 
-  private[presentation] def birthdayPrompt(): String = {
+  private[app] def birthdayPrompt(): String = {
     println("生年月日を入力してください (例：1995-11-17)")
     StdIn.readLine()
   }
 
   @tailrec
-  private[presentation] def validateReservationDateTime(userInput: String): LocalDateTime =
+  private[app] def validateReservationDateTime(userInput: String): LocalDateTime =
     ReservationDateTimeForm(userInput) match {
       case Right(v) => v
       case Left(error) => {
@@ -103,13 +101,13 @@ object Prompt {
       }
     }
 
-  private[presentation] def reservationDateTimePrompt(): String = {
+  private[app] def reservationDateTimePrompt(): String = {
     println("予約日時を入力してください (例：202012192100")
     StdIn.readLine()
   }
 
   @tailrec
-  private[presentation] def validateMenu(userInput: String): String = MenuForm(userInput) match {
+  private[app] def validateMenu(userInput: String): String = MenuForm(userInput) match {
     case Some(v) => v
     case None => {
       println("不正な値が入力されました")
@@ -117,7 +115,7 @@ object Prompt {
     }
   }
 
-  private[presentation] def menuPrompt(): String = {
+  private[app] def menuPrompt(): String = {
     println("""メニューを入力してください (例：カットの場合 1
         |1. カット 5000円
         |2. カットカラー 10000円
@@ -127,7 +125,7 @@ object Prompt {
     StdIn.readLine()
   }
 
-  private[presentation] def stylistPrompt(): String = {
+  private[app] def stylistPrompt(): String = {
     println("スタイリストを指名してください")
     StdIn.readLine()
   }

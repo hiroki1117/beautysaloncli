@@ -1,11 +1,9 @@
-package beauty
+package app
 
 import java.time.LocalDate
 
-import beauty.presentation.{Information, Prompt}
-import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
-import beauty.presentation.{Information, Prompt}
-import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
+import domain.{Customer, PriceCalculationService, ReservationFactory}
+import presentation.form.Information
 
 object Main {
   def main(args: Array[String]): Unit = {
