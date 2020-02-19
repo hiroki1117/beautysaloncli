@@ -1,8 +1,7 @@
-package beauty.domain
+package domain
 
 import java.time.LocalDate
 
-import domain.Customer
 import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 

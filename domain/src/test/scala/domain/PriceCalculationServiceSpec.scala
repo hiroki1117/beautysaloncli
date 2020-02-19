@@ -1,11 +1,8 @@
-package beauty.domain
+package domain
 
 import java.time.LocalDate
 
-import beauty.domain.{ColorOnly, Cut, CutColor, CutPerm, PermOnly, Reservation, Stylist}
-import domain.{ColorOnly, Customer, Cut, CutColor, CutPerm, PermOnly, PriceCalculationService, Reservation, Stylist}
-import org.mockito.MockitoSugar
-import org.mockito.ArgumentMatchersSugar
+import org.mockito.{ArgumentMatchersSugar, MockitoSugar}
 import org.scalatest.funsuite.AnyFunSuite
 
 class PriceCalculationServiceSpec extends AnyFunSuite with MockitoSugar with ArgumentMatchersSugar {
