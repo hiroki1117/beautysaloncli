@@ -23,7 +23,6 @@ lazy val app = (project in file("app"))
 
 lazy val domain = (project in file("domain"))
   .settings(commonSetting)
-  .dependsOn(presentation)
 
 lazy val presentation = (project in file("presentation"))
   .settings(commonSetting)

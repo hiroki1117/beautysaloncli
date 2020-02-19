@@ -1,10 +1,10 @@
 package domain
 
-import presentation.Information
+import java.time.LocalDateTime
 
 object ReservationFactory {
-  def createReservation(info: Information): Reservation = {
-    val menu = info.menu match {
+  def createReservation(menuArg: String, reservationDateTimeArg: LocalDateTime, stylistArg: String): Reservation = {
+    val menu = menuArg match {
       case "1" => Cut
       case "2" => CutColor
       case "3" => CutPerm
@@ -13,8 +13,8 @@ object ReservationFactory {
       case _   => throw new IllegalArgumentException
     }
 
-    val stylist = if (info.stylist.isEmpty) None else Some(Stylist(info.stylist))
+    val stylist = if (stylistArg.isEmpty) None else Some(Stylist(stylistArg))
 
-    Reservation(info.reservationDateTime, menu, stylist)
+    Reservation(reservationDateTimeArg, menu, stylist)
   }
 }

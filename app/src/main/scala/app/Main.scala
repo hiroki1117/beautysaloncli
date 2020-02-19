@@ -2,7 +2,7 @@ package app
 
 import java.time.LocalDate
 
-import domain.{Customer, PriceCalculationService, ReservationFactory}
+import domain.{Customer, PriceCalculationService, Reservation, ReservationFactory}
 import presentation.Information
 
 object Main {
@@ -12,7 +12,7 @@ object Main {
 
     //ドメインオブジェクトを作成
     val customer    = createCustomer(info)
-    val reservation = ReservationFactory.createReservation(info)
+    val reservation = createReservation(info)
     //料金を計算
     val price = PriceCalculationService.calcTotalPrice(customer, reservation)
 
@@ -26,4 +26,7 @@ object Main {
 
   def createCustomer(info: Information): Customer =
     Customer(info.customerName, info.phoneNumber, info.birthday)
+
+  def createReservation(info: Information): Reservation =
+    ReservationFactory.createReservation(info.menu, info.reservationDateTime, info.stylist)
 }
