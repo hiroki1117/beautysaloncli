@@ -1,4 +1,4 @@
-package beauty.application.form
+package beauty.presentation.form
 
 object MenuForm {
   private val acceptableMenuNumRegex = """([1-5]{1})""".r

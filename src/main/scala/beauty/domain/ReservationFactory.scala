@@ -1,7 +1,7 @@
 package beauty.domain
 
-import beauty.application.Information
-import beauty.application.Information
+import beauty.presentation.Information
+import beauty.presentation.Information
 
 object ReservationFactory {
   def createReservation(info: Information): Reservation = {

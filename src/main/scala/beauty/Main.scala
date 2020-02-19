@@ -2,9 +2,9 @@ package beauty
 
 import java.time.LocalDate
 
-import beauty.application.{Information, Prompt}
+import beauty.presentation.{Information, Prompt}
 import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
-import beauty.application.{Information, Prompt}
+import beauty.presentation.{Information, Prompt}
 import beauty.domain.{Customer, PriceCalculationService, ReservationFactory}
 
 object Main {

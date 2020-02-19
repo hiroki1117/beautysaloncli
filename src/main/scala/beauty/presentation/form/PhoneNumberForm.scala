@@ -1,4 +1,4 @@
-package beauty.application.form
+package beauty.presentation.form
 
 class PhoneNumberForm(val phoneNumber: String)
 

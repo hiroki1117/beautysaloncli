@@ -1,4 +1,4 @@
-package beauty.application
+package beauty.presentation
 
 import java.time.{LocalDate, LocalDateTime}
 
