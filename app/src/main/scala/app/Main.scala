@@ -3,7 +3,7 @@ package app
 import java.time.LocalDate
 
 import domain.{Customer, PriceCalculationService, ReservationFactory}
-import presentation.form.Information
+import presentation.Information
 
 object Main {
   def main(args: Array[String]): Unit = {

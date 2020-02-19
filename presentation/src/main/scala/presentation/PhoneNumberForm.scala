@@ -1,4 +1,4 @@
-package presentation.form
+package presentation
 
 class PhoneNumberForm(val phoneNumber: String)
 

@@ -1,4 +1,4 @@
-package presentation.form
+package presentation
 
 import java.time.LocalDate
 import java.time.format.{DateTimeFormatter, ResolverStyle}
@@ -17,14 +17,14 @@ object BirthdayForm {
     } yield date
 
   //フォーマットのバリデーション
-  private[form] def checkBirthdayFormat(birthdayString: String): Either[BirthdayFormError, String] =
+  private[presentation] def checkBirthdayFormat(birthdayString: String): Either[BirthdayFormError, String] =
     birthdayString match {
       case acceptableBirthdayRegex(v) => Right(v)
       case _                          => Left(FormatError)
     }
 
   //入力された日付がLocalDateに変換できるかバリデーション
-  private[form] def checkConvertBirthday(birthdayString: String): Either[BirthdayFormError, LocalDate] =
+  private[presentation] def checkConvertBirthday(birthdayString: String): Either[BirthdayFormError, LocalDate] =
     Try {
       LocalDate.parse(birthdayString, birthdayFormat)
     } match {
@@ -33,7 +33,7 @@ object BirthdayForm {
     }
 
   //未来の日付じゃない
-  private[form] def checkFutureDate(birthday: LocalDate): Either[BirthdayFormError, LocalDate] =
+  private[presentation] def checkFutureDate(birthday: LocalDate): Either[BirthdayFormError, LocalDate] =
     Option(birthday).filter(LocalDate.now.compareTo(_) >= 0) match {
       case Some(v) => Right(v)
       case None    => Left(FutureDateError)

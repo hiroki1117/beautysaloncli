@@ -1,6 +1,6 @@
 package domain
 
-import presentation.form.Information
+import presentation.Information
 
 object ReservationFactory {
   def createReservation(info: Information): Reservation = {

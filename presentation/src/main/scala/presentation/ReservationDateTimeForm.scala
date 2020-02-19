@@ -1,4 +1,4 @@
-package presentation.form
+package presentation
 
 import java.time.LocalDateTime
 import java.time.format.{DateTimeFormatter, ResolverStyle}
@@ -18,7 +18,7 @@ object ReservationDateTimeForm {
     } yield dateTime
 
   //フォーマットのバリデーション
-  private[form] def checkReservationDateFormat(
+  private[presentation] def checkReservationDateFormat(
       reservationDateTime: String
   ): Either[ReservationDateTimeFormError, String] =
     reservationDateTime match {
@@ -27,7 +27,7 @@ object ReservationDateTimeForm {
     }
 
   //入力された日付がLocalDateに変換できるかバリデーション
-  private[form] def checkConvertReservationDateTime(
+  private[presentation] def checkConvertReservationDateTime(
       reservationDateTime: String
   ): Either[ReservationDateTimeFormError, LocalDateTime] =
     Try {
@@ -38,7 +38,7 @@ object ReservationDateTimeForm {
     }
 
   //過去の日付じゃない
-  private[form] def checkPastDateTime(
+  private[presentation] def checkPastDateTime(
       reservationDateTime: LocalDateTime
   ): Either[ReservationDateTimeFormError, LocalDateTime] =
     Option(reservationDateTime).filter(LocalDateTime.now.compareTo(_) < 0) match {

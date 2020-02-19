@@ -1,4 +1,4 @@
-package presentation.form
+package presentation
 
 object CustomerNameForm {
   def apply(name: String): Option[String] =

@@ -4,10 +4,11 @@ import java.time.format.DateTimeFormatter
 import java.time.{LocalDate, LocalDateTime}
 
 import domain.{Customer, Reservation}
+import presentation.{BirthdayForm, CustomerNameForm, Information, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
 
 import scala.annotation.tailrec
 import scala.io.StdIn
-import presentation.form.{BirthdayForm, CustomerNameForm, Information, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
+import presentation.{CustomerNameForm, Information, MenuForm, PhoneNumberForm, ReservationDateTimeForm}
 
 object Prompt {
   def askUserInformation(): Information = {
