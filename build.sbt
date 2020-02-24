@@ -15,14 +15,18 @@ lazy val commonSetting = Seq(
 
 
 lazy val root = (project in file("."))
+  .withId("beauty-cli-root")
   .aggregate(app, presentation, domain)
 
 lazy val app = (project in file("app"))
+  .withId("beauty-cli-app")
   .settings(commonSetting)
   .dependsOn(domain, presentation)
 
 lazy val domain = (project in file("domain"))
+  .withId("beauty-cli-domain")
   .settings(commonSetting)
 
 lazy val presentation = (project in file("presentation"))
+  .withId("beauty-cli-presentation")
   .settings(commonSetting)
